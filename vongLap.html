@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài vòng lặp</title>
+</head>
+
+<body>
+    <script>
+        // 1. Viết hàm xuất ra một tin nhắn, n lần
+        function showMessage(message, n) {
+            for (let i = 0; i < n; i++) {
+                document.write(message + "<br>");
+            }
+        }
+        // 2. Sử dung hàm (1) xuất ra 10 lần dòng chữ "Hôm nay trời đẹp quá"
+        showMessage("Hôm nay trời đẹp quá", 10);
+        document.write("<hr>");
+        // 3. Viết hàm tính tổng từ 1 tới n
+        let amount = 0;
+
+        function sum(amount) {
+            for (let i = 1; i < amount; i++) {
+                let tong = amount += i;
+                return tong;
+            }
+        }
+        // 4. Sử dụng hàm (3) tính toán tổng từ 1 tới 100; tính toán tổng từ 1 tới 500
+        let tongTu1Den100 = sum(100);
+        document.write("Tổng từ 1 tới 100 là: " + tongTu1Den100 + "<br>");
+        let tongTu1Den500 = sum(500);
+        document.write("Tổng từ 1 tới 500 là: " + tongTu1Den500);
+        document.write("<hr>");
+        // 5. Viết hàm tính tổng từ a tới b
+        function sumOdd(from, to) {
+            let i;
+            let sum = 0;
+            for (i = from; i <= to; i++) {
+                sum = sum + i;
+            }
+            return sum;
+        }
+        // 6. Sử dụng hàm (5) tính toán tổng từ 1 tới 100; tính toán tổng từ 20 tới 76
+        let nodeSumBai4 = sumOdd(1, 100);
+        document.write("Tổng từ 1 - 100 là: " + nodeSumBai4);
+        document.write("<br>");
+        let nodeSumBai4Lan2 = sumOdd(20, 76);
+        document.write("Tổng từ 20 - 76 là: " + nodeSumBai4Lan2);
+        document.write("<hr>");
+
+        // 7. Viết hàm tính tổng tất cả các số lẻ từ a tới b 
+        function sumOddLe(from, to) {
+            let i;
+            let sum = 0;
+            for (i = from; i <= to; i++) {
+                if (i % 2 != 0) {
+                    sum = sum + i;
+                }
+            }
+            return sum;
+        }
+        // 8. Sử dụng hàm (7) tính toán tổng từ 1 tới 100; tính toán tổng từ 20 tới 76
+        let nodeSumBai5 = sumOddLe(1, 100);
+        document.write("Tổng từ 1 - 100 các số lẻ là: " + nodeSumBai5);
+        document.write("<br>");
+        let nodeSumBai5Lan2 = sumOddLe(20, 76);
+        document.write("Tổng từ 20 - 76 các số lẻ là: " + nodeSumBai5Lan2);
+        document.write("<hr>");
+        // 9. Viết hàm xuất ra n số lẻ nhỏ nhất 
+        function xuatRaNSoLe(n) {
+            for (let i = 0; i <= n; i++) {
+                if (i % 2 != 0) {
+                    document.write(i + " ");
+                }
+            }
+        }
+
+        // 10. Sử dụng hàm (9) xuất ra 100 số lẻ gần nhất 
+        xuatRaNSoLe(10);
+
+        // 11. Viết hàm xuất ra n số lẻ gần nhất bắt đầu từ m. Ví dụ: viết ra 3 số lẻ gần nhất bắt đầu từ 102 => 103; 105; 107
+        document.write("<hr>");
+
+        function listOdd(from, amount) {
+            for (let i = from; i < amount; i++) {
+                if (i % 2 != 0) {
+                    document.write(i + " ");
+                }
+            }
+        }
+        // 12. Sử dụng hàm (11) xuất ra 57 số lẻ gần nhất bắt đầu từ 1005
+        listOdd(1005, 1120);
+        document.write("<hr>");
+        // 13. Viết hàm kiểm tra một số có phải là số nguyên tố hay không? Biết số nguyên tố là số chia hết cho một và chính nó.
+
+
+        function isPrime(dauVao) {
+            if (dauVao < 2) {
+                document.write(dauVao + " Không phải là số nguyên tố");
+                return 0;
+            }
+            let count = 0;
+            for (let i = 2; i <= Math.sqrt(dauVao); i++) {
+                if (dauVao % i == 0) {
+                    count++;
+                }
+            }
+            if (count == 0) {
+                document.write(dauVao + " là số nguyên tố");
+            } else {
+                document.write(dauVao + " Không phải là số nguyên tố");
+            }
+        }
+
+        isPrime(4);
+        document.write("<hr>");
+        // 14. Viết hàm xuất ra n số nguyên tố nhỏ nhất. 
+        function listPrime(dauVao) {
+            for (let i = 1; i < dauVao; ++i) {
+                let count = 0;
+                for (let j = 2; j <= Math.sqrt(i); j++) {
+                    if (i % j == 0) {
+                        count++;
+
+                    }
+                }
+
+                if (count == 0 && i > 1) {
+                    document.write(i + " ");
+
+                }
+
+            }
+        }
+        // 15. Sử dụng hàm (14) xuất ra 20 số nguyên tố nhỏ nhất.
+        listPrime(46);
+        document.write("<hr>");
+        // 16. Viết hàm xuất ra n số nguyên tố nhỏ nhất băts đầu từ m
+        function listPrime2(from, amount) {
+            for (let i = from; i < amount; ++i) {
+                let count = 0;
+                for (let j = 2; j <= Math.sqrt(i); j++) {
+                    if (i % j == 0) {
+                        count++;
+                    }
+                }
+
+                if (count == 0 && i > 1) {
+                    document.write(i + " ");
+
+                }
+
+            }
+        }
+        // 17. Sử dụng hàm (16) xuất ra 20 số nguyên tô nhỏ nhất bắt đầu từ 1000
+        listPrime2(1000, 1124);
+    </script>
+</body>
+
+</html>
