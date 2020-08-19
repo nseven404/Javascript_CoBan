@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập mảng</title>
+</head>
+
+<body>
+    <script>
+        // 1. Tạo một mảng chứa các số từ 1 tới 10
+        let arr = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        // 2. Tạo một mảng lưu trữ sở thích cá nhân
+        let arrSoThich = new Array("đá bóng", "bóng chuyền", "nghe nhạc");
+        // 3. Xuất mảng (1) ra console.log
+        console.log(arr);
+        // 4. Xuất mảng (2) ra console.log
+        console.log(arrSoThich);
+        // 5. Viết hàm trả ra danh sách n số nhỏ hơn n
+        let danhSachSoNho = new Array();
+
+        function getLessThan(n) {
+            for (let i = 0; i < n; i++) {
+                danhSachSoNho.push(i);
+            }
+            return danhSachSoNho.join();
+        }
+        // 6. Sử dụng hàm (5) xuất ra console danh sách các số nhỏ hơn 100
+        let getBai5 = getLessThan(10);
+        console.log(getBai5);
+
+        let danhSachSoLeNho = new Array();
+        // 7. Viết hàm trả ra danh sách tất cả các số lẻ nhỏ hơn n
+        function getOddlessThan(m) {
+            for (let i = 0; i < m; i++) {
+                if (i % 2 != 0) {
+                    danhSachSoLeNho.push(i);
+                }
+            }
+            return danhSachSoLeNho.join();
+        }
+
+        // 8. Sử dụng hàm (7) xuất ra console danh sách toàn bộ số lẻ < 1000
+        let getBai6 = getOddlessThan(1000);
+        console.log(getBai6);
+        // 9. Viết hàm tìm ra vị trí phần tử đầu tiên nằm trong mảng
+        let arrNew = new Array("bóng chuyền", "bóng rổ", "bóng đá");
+
+        function findFirst(arrNew, chuoiCanTim) {
+            let viTriChuoi = arrNew.indexOf(chuoiCanTim);
+            return "Vị trí: " + (viTriChuoi + 1);
+        }
+
+        /* 10. Sử dụng hàm (9). 
+    - Mảng: ["bóng chuyền", "bóng rổ", "bóng đá"]    
+    - string cần tìm: bóng rổ
+    - kết quả trả ra: vị trí 2 */
+        let getBai7 = findFirst(arrNew, "bóng rổ");
+        console.log(getBai7);
+
+        /* 13. Viết hàm tìm ra vị trí tất cả phần tử nằm trong mảng 
+    - find(arr, chuoiCanTim): numer[]
+        */
+
+        var viTriCanTim = new Array();
+        let arrNew2 = new Array("bóng chuyền", "bóng rổ", "bóng đá", "bóng rổ");
+
+        function find(arr, chuoiCanTim) {;
+            var index = arr.indexOf(chuoiCanTim);
+            while (index != -1) {
+                viTriCanTim.push(index);
+                index = arr.indexOf(chuoiCanTim, index + 1);
+            }
+            return "Vị trí: " + viTriCanTim;
+        }
+        /*  14. Sử dụng hàm (13). 
+    - Mảng: ["bóng chuyền", "bóng rổ", "bóng đá", "bóng rổ"]    
+    - string cần tìm: bóng rổ
+    - kết quả trả ra: vị trí [2,4] */
+        let getBai8 = find(arrNew2, "bóng rổ");
+        console.log(getBai8);
+        /* 15. Viết hàm thêm một phần tử vào mảng 
+    - add(arr, chuoiCanThem): []
+         */
+
+
+        function add(arr, chuoiCanThem) {
+            arr.push(chuoiCanThem);
+            return arr;
+        }
+
+        /* 16. Sử dụng hàm (15). 
+    - Mảng: ["bóng chuyền", "bóng rổ", "bóng đá"]    
+    - string cần thêm: bóng rổ
+    - kết quả trả ra: ["bóng chuyền", "bóng rổ", "bóng đá", "bóng rổ"] */
+        let themVaoMang = new Array("bóng chuyền", "bóng rổ", "bóng đá");
+        let getBai9 = add(themVaoMang, "bóng rổ");
+        console.log(getBai9);
+        /* 17. Viết hàm thêm một phần tử vào mảng, nhưng nếu phần tử đó đã tồn tại thì ko thêm nữa.
+    addIfNotExist(arr,chuoiCanThem):[]
+        */
+        function addIfNotExist(arr, chuoiCanThem) {
+            if (arr.indexOf(chuoiCanThem) === -1) {
+                arr.push(chuoiCanThem);
+                return arr;
+            } else {
+                return arr;
+            }
+        }
+        /* 18. Sử dụng hàm (17). 
+    - Mảng: ["bóng chuyền", "bóng rổ", "bóng đá"]    
+    - string cần thêm: bóng rổ
+    - kết quả trả ra: ["bóng chuyền", "bóng rổ", "bóng đá"] */
+        let themVaoMang1 = new Array("bóng chuyền", "bóng rổ", "bóng đá");
+        let getBai10 = addIfNotExist(themVaoMang1, "bóng rổ");
+        console.log(getBai10);
+        /* 19. Viết hàm xoá toàn bộ phần tử ra khỏi mảng 
+    - delete(arr,chuoiCanXoa): [] */
+        function deleteMang(arr, chuoiCanXoa) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === chuoiCanXoa) {
+                    arr.splice(i, 1);
+                }
+            }
+            return arr;
+        }
+        /* 20. Sử dụng hàm (19). 
+        - Mảng: ["bóng chuyền", "bóng rổ", "bóng đá","bóng chuyền"]    
+        - string cần thêm: bóng chuyền
+        - kết quả trả ra: ["bóng rổ", "bóng đá"] */
+        let themVaoMang2 = new Array("bóng chuyền", "bóng rổ", "bóng đá", "bóng chuyền");
+        let getBai11 = deleteMang(themVaoMang2, "bóng chuyền");
+        console.log(getBai11);
+    </script>
+</body>
+
+</html>
